@@ -1,0 +1,33 @@
+{
+  "experience" : [ {
+    "footer" : true,
+    "url" : "http://www.uw.edu.pl/",
+    "period" : "11.2012 - now",
+    "usedTechnologies" : [ "Django", "Python", "PHP", "MySQL", "VanillaJS", "AngularJS", "jasmine", "grunt", "bootstrap", "SASS", "jQuery", "Underscore" ],
+    "place" : "The University of Warsaw",
+    "positionName" : "Software developer",
+    "id" : "uw"
+  }, {
+    "footer" : true,
+    "url" : "http://www.tt.com.pl/en/",
+    "period" : "08.2012 - 11.2012",
+    "usedTechnologies" : [ "Objective-C", "iOS SDK" ],
+    "place" : "Transition Technologies",
+    "positionName" : "Software developer",
+    "id" : "transition_technologies"
+  }, {
+    "url" : "http://www.codility.com/",
+    "period" : "07.2011 - 09.2011",
+    "usedTechnologies" : [ "Django", "HTML/CSS/Javascript", "jQuery" ],
+    "place" : "Codility",
+    "positionName" : "Software developer intern",
+    "id" : "codility"
+  }, {
+    "url" : "http://www.atinea.com/",
+    "period" : "06.2010 - 09.2010",
+    "usedTechnologies" : [ "PHP", "MySQL", "ASP.NET with C#", "Microsoft SQL Server 2008" ],
+    "place" : "Atinea",
+    "positionName" : "Software developer intern",
+    "id" : "atinea"
+  } ]
+}

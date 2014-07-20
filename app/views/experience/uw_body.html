@@ -1,0 +1,58 @@
+<p>
+    I currently work in a team that develops <strong>USOS</strong> - a large-scale academic system consisting of a central database
+    and a few of applications around this database. This system is used in over 30 of the biggest
+    universities in Poland. USOS is gradually gaining the reputation of a ‘standard’ solution for a higher
+    education institution in Poland.
+</p>
+<p>
+    The projects that I have worked on are:
+    <ul>
+        <li><b>USOSapi</b> &ndash; a web application that allows developers to access the academic database
+            through a simple REST protocol. The application consists of a plenty of modules that provide
+            information on students, staff, courses, academic facilities, grades, student programmes, etc.
+            The application is written in <strong>Django</strong> and uses <strong>oauth</strong> – a protocol
+            that allows secure authorization from various kinds of application.
+            More details on
+            <a href="https://apps.usos.edu.pl/developers/api/">https://apps.usos.edu.pl/developers/api/</a>.
+        </li>
+        <li><b>USOSweb</b> &ndash; the main web application among USOS web-based applications.
+            It is used by students and academic staff. Students can browse information about their study
+            progress and grades, register for courses and particular classes, be informed by lecturers
+            about important events through the built-in messaging system, assess courses by an integrated
+            course assessment system, etc.. My resposibilities concerned developing existing modules.
+            The application is written in <strong>PHP</strong> and <strong>Smarty</strong> framework
+            and the database layer is based on <strong>MySQL</strong>.
+        </li>
+        <li><b>The university's course-registration system</b> &ndash; a module in USOSweb that allows students to
+            register for exams and classes. <u>It is also a part of my Master's thesis</u>.
+            Together with two other colleagues, I have developed the module that will replace the existing
+            one in the very near future. The nature of the old module causes big performance issues at
+            critical moments, for example the beginning of course registrations.
+            The aim of the new one is to handle heavy workload.
+            <br>
+            The new module consists of three layers:
+            <ul>
+                <li>a user interface in a web browser;</li>
+                <li>a back-end that implements the registration process;</li>
+                <li>a layer of a temporary and persistent storage.</li>
+            </ul>
+            My primary contribution was the user interface.
+            <br><br>
+            The essence of the new user interface is moving a part of logic from the server into the web browser
+            and asynchronous communication. During registration, a user fetches the web page whose content
+            dynamically changes according to user actions and push notifications from the server without page
+            reloading.
+            It constitutes a separate application – a single-page web application (SPA),
+            connected with a server that processes data by a well-defined protocol.
+            We believe this approach will bring the following benefits:
+            <ul>
+                <li>the user avoids reloading the web page despite performing actions;</li>
+                <li>better user experience;</li>
+                <li>data is immediately delivered from the server reducing network traffic (PUSH).</li>
+            </ul>
+            <br>
+            The front-end is developed in <strong>AngularJS</strong> – a framework that has been designed for
+            building SPAs.
+        </li>
+    </ul>
+</p>

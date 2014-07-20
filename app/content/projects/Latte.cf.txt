@@ -1,0 +1,116 @@
+-- this grammar is based on http://www.mimuw.edu.pl/~ben/Zajecia/Mrj2011/Latte/Latte.cf
+-- and partly on:
+-- a.) http://people.cs.uchicago.edu/~mrainey/java.cf
+-- b.) http://bnfc.digitalgrammars.com/doc/examples/C.cf
+
+position token PIdent (letter (letter|digit|'_')*) ;
+
+------------------------ programs ------------------------ 
+entrypoints     Program ;
+Program.        Program    ::= [Subprogram] ;
+
+separator       nonempty Subprogram "" ;
+GlDefFun.       Subprogram ::= Function ;
+GlDefCl.        Subprogram ::= Class ;
+
+ClNonInh.       Class ::= "class" PIdent "{" [ClassItem] "}" ;
+ClInh.          Class ::= "class" PIdent "extends" PIdent "{" [ClassItem] "}" ;
+
+separator       ClassItem "" ;
+ClAttr.         ClassItem  ::= Decl ";" ;
+ClMeth.         ClassItem  ::= Function ;
+
+separator       Arg "," ;
+Arg.            Arg        ::= Type PIdent ;
+
+Fun.            Function   ::= Type PIdent "(" [Arg] ")" Block ;
+
+------------------------ statements ------------------------ 
+Block.          Block ::= "{" [Stmt] "}" ;
+
+Decl.           Decl     ::= Type [Item] ;
+
+separator       nonempty Item "," ;
+NoInit.         Item     ::= PIdent ; 
+Init.           Item     ::= PIdent "=" Expr ;
+
+separator       Stmt "" ;
+SBlock.         Stmt     ::= Block ;
+SExp.           Stmt     ::= Expr ";" ;
+SEmpty.         Stmt     ::= ";" ;
+
+SDecl.          Stmt     ::= Decl ";" ;
+
+SAss.           Stmt     ::= Expr8 "=" Expr ";" ;
+SPostIncr.      Stmt     ::= Expr8 "++" ";" ;
+SPostDecr.      Stmt     ::= Expr8 "--" ";" ;
+
+SRet.           Stmt     ::= "return" Expr ";" ;
+SVRet.          Stmt     ::= "return" ";" ;
+
+SCond.          Stmt     ::= "if" "(" Expr ")" Stmt ;
+SCondElse.      Stmt     ::= "if" "(" Expr ")" Stmt "else" Stmt ;
+
+SWhile.         Stmt     ::= "while" "(" Expr ")" Stmt ;
+SForEach.       Stmt     ::= "for" "(" Type PIdent ":" PIdent ")" Stmt;
+
+
+------------------------ types ------------------------ 
+TVar.           Type     ::= TypeName ;
+TArr.           Type     ::= TypeName "[]" ;
+
+TInt.           TypeName ::= "int" ;
+TString.        TypeName ::= "string" ;
+TBool.          TypeName ::= "boolean" ;
+TVoid.          TypeName ::= "void" ;
+
+TDef.           TypeName ::= PIdent ;
+
+------------------------ expressions ------------------------ 
+
+EInt.           Expr8 ::= Integer ;
+EString.        Expr8 ::= String ;
+EBoolTrue.      Expr8 ::= "true" ;
+EBoolFalse.     Expr8 ::= "false" ;
+
+ESelf.          Expr8 ::= "self" ;
+EVar.           Expr8 ::= PIdent ;
+
+EApp.           Expr8 ::= PIdent "(" [Expr] ")" ;
+EArr.           Expr8 ::= Expr8 "[" Expr "]" ;
+EClAttr.        Expr8 ::= Expr8 "." PIdent ;
+EClMeth.        Expr8 ::= Expr8 "." PIdent "(" [Expr] ")" ;
+
+EInitArr.       Expr7 ::= "new" TypeName "[" Expr "]" ;
+EInitCl.        Expr7 ::= "new" TypeName ;
+ENullCast.      Expr7 ::= "(" Expr ")" "null" ;
+
+ENeg.           Expr6 ::= "-" Expr7 ;
+ENot.           Expr6 ::= "!" Expr7 ;
+
+ETimes.         Expr5 ::= Expr5 "*" Expr6 ;
+EDiv.           Expr5 ::= Expr5 "/" Expr6 ;
+EMod.           Expr5 ::= Expr5 "%" Expr6 ;
+
+EAdd.           Expr4 ::= Expr4 "+" Expr5 ;
+ESubtract.      Expr4 ::= Expr4 "-" Expr5 ;
+
+ERelLTH.        Expr3 ::= Expr3 "<"  Expr4 ;
+ERelLE.         Expr3 ::= Expr3 "<=" Expr4 ;
+ERelGTH.        Expr3 ::= Expr3 ">"  Expr4 ;
+ERelGE.         Expr3 ::= Expr3 ">=" Expr4 ;
+
+ERelEQU.        Expr2 ::= Expr2 "==" Expr3 ;
+ERelNE.         Expr2 ::= Expr2 "!=" Expr3 ;
+
+EAnd.           Expr1 ::= Expr1 "&&" Expr2 ;
+EOr.            Expr  ::= Expr "||" Expr1 ;
+
+coercions       Expr 8 ;
+separator       Expr "," ;
+
+
+------------------------ comments ------------------------ 
+comment         "#" ;
+comment         "//" ;
+comment         "/*" "*/" ;

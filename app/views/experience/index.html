@@ -1,0 +1,14 @@
+<div class="row box" ng-repeat="job in jobs">
+    <a href="{{ job.url }}" target="_blank"><img ng-src="images/logos/{{ job.id }}.png" class="pull-right"></a>
+    <h3>{{ job.place }}</h3>
+    <h4>{{ job.positionName }}</h4>
+    <h6>{{ job.period }}</h6>
+    <ng-include src="'views/experience/' + job.id + '_body.html'"></ng-include>
+    <p>
+        Used technologies:
+        <span ng-repeat="tech in job.usedTechnologies">
+            <b>{{ tech }}</b><span ng-if="!$last">,</span><span ng-if="$last">.</span>
+        </span>
+    </p>
+    <p class="text-center box-footer" ng-if="job.footer" ng-include="'views/experience/' + job.id + '_footer.html'"></p>
+</div>
