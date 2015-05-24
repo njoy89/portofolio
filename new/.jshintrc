@@ -1,0 +1,26 @@
+{
+  "globals": {
+    "angular": true,
+    "require": true,
+    "console": true
+  },
+  "browserify": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "evil": true,
+  "forin": false,
+  "globalstrict": false,
+  "jasmine": true,
+  "jquery": true,
+  "newcap": true,
+  "noarg": true,
+  "nonbsp": true,
+  "plusplus": false,
+  "quotmark": true,
+  "smarttabs": true,
+  "strict": true,
+  "trailing": true,
+  "undef": true
+}

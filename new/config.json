@@ -1,0 +1,72 @@
+{
+  "host": "http://localhost",
+  "port": 8000,
+
+  "mode": "dev",
+
+  "files": {
+    "server": {
+      "path": "./server/",
+
+      "app": "app.js",
+      "js": "**/*.js"
+    },
+    "client": {
+      "path": "./client/",
+
+      "app": "./app/app.js",
+      "js": "./app/**/*.js",
+      "lessMain": "./styles/**/*.less",
+      "less": "./**/*.less",
+      "html": "./app/**/*.html",
+      "images": "./images/*"
+    },
+    "build": {
+      "path": "./build/",
+
+      "js": "./js/",
+      "css": "./css/",
+      "fonts": "./fonts/",
+      "images": "./images/",
+      "bundle": {
+        "appjs": "app.js",
+        "libsjs": "libs.js",
+        "libscss": "libs.css",
+        "partials": "partials.js"
+      }
+    }
+  },
+
+  "libs": {
+    "dev": {
+      "js": [
+        "./node_modules/angular/angular.js",
+        "./node_modules/angular-ui-router/release/angular-ui-router.js",
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap.js",
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"
+      ],
+      "css": [
+        "./client/styles/*.css",
+        "./node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
+      "fonts": [
+        "./node_modules/bootstrap/dist/fonts/*"
+      ]
+    },
+    "prod": {
+      "js": [
+        "./node_modules/angular/angular.js",
+        "./node_modules/angular-ui-router/release/angular-ui-router.js",
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap.js",
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"
+      ],
+      "css": [
+        "./client/styles/*.css",
+        "./node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
+      "fonts": [
+        "./node_modules/bootstrap/dist/fonts/*"
+      ]
+    }
+  }
+}
