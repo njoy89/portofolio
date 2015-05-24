@@ -10,7 +10,8 @@ var gulp = require('gulp');
 var gulpRunSequence = require('run-sequence');
 var plugins = require('gulp-load-plugins')({ lazy: false });
 
-var devMode = (config.mode === 'dev');
+var mode = plugins.util.env.environment || 'dev';
+var devMode = (mode === 'dev');
 
 require('jshint-stylish');
 
@@ -41,18 +42,18 @@ gulp.task('jshint', function () {
 
 gulp.task('clean', function () {
   return gulp.src([ config.files.build.path ], { read: false }).
-    pipe(plugins.clean({force: true}));
+    pipe(plugins.rimraf({force: true}));
 });
 
 gulp.task('fonts', function () {
-  return gulp.src(config.libs[config.mode].fonts).
+  return gulp.src(config.libs[mode].fonts).
     pipe(gulp.dest(config.files.build.path + config.files.build.fonts));
 });
 
 gulp.task('html:partials', function () {
   return gulp.src(config.files.client.path + config.files.client.html).
     pipe(plugins.ngHtml2js({
-      moduleName: 'Portofolio.partials'
+      moduleName: 'portofolio.partials'
     })).
     pipe(plugins.concat(config.files.build.js + config.files.build.bundle.partials)).
     pipe(devMode ? plugins.util.noop() : plugins.uglify()).
@@ -67,14 +68,14 @@ gulp.task('html:static', function () {
 });
 
 gulp.task('libs:js', function () {
-  return gulp.src(config.libs[config.mode].js).
+  return gulp.src(config.libs[mode].js).
     pipe(plugins.concat(config.files.build.bundle.libsjs)).
     pipe(devMode ? plugins.util.noop() : plugins.uglify()).
     pipe(gulp.dest(config.files.build.path + config.files.build.js));
 });
 
 gulp.task('libs:css', function () {
-  return gulp.src(config.libs[config.mode].css).
+  return gulp.src(config.libs[mode].css).
     pipe(plugins.concat(config.files.build.bundle.libscss)).
     pipe(plugins.minifyCss({
       keepSpecialComments: 0
@@ -94,16 +95,37 @@ gulp.task('app:js', function () {
     pipe(gulp.dest(config.files.build.path + config.files.build.js));
 });
 
+gulp.task('app:css', function () {
+  return gulp.src(config.files.client.path + config.files.client.less).
+    pipe(plugins.less()).
+    pipe(plugins.concat(config.files.build.bundle.appcss)).
+    pipe(plugins.minifyCss()).
+    pipe(gulp.dest(config.files.build.path + config.files.build.css));
+});
+
+gulp.task('images', function () {
+  return gulp.src(config.files.client.path + config.files.client.images).
+    pipe(gulp.dest(config.files.build.path + config.files.build.images));
+});
+
 gulp.task('build', ['clean'], function () {
-  return gulpRunSequence(['fonts', 'html:partials', 'html:static', 'libs:js', 'libs:css', 'app:js']);
+  return gulpRunSequence(['fonts', 'html:partials', 'html:static', 'libs:js', 'libs:css', 'app:js', 'app:css', 'images']);
 });
 
 gulp.task('start', function () {
   if (devMode) {
-    return gulpRunSequence('jshint', ['nodemon', 'build']);
-  } else {
-    return gulpRunSequence('jshint', ['build']);
+    gulp.watch([
+        config.files.client.path + config.files.client.js,
+        config.files.client.path + config.files.client.html,
+        config.files.client.path + 'index.html'
+    ], ['build']);
+
+    gulp.watch([
+      config.files.client.path + config.files.client.less
+    ], ['app:css']);
   }
+
+  return gulpRunSequence('jshint', ['nodemon', 'build']);
 });
 
 gulp.task('default', function () {

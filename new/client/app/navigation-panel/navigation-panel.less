@@ -1,0 +1,35 @@
+/**
+ * Copyright (c) 2015, Grzegorz Swatowski
+ */
+
+.navbar {
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(240,240,240,1) 100%);
+  box-shadow: 2px 2px 5px 0 rgba(200,200,200,1);
+  border-bottom: 1px solid rgb(200,200,200);
+  min-height: 60px;
+
+  .navbar-nav {
+    & > li {
+      &.active {
+        a {
+          background: linear-gradient(to bottom, rgba(231,231,231,1) 0%, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%);
+        }
+      }
+
+      & > a {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        transition: color 1s, background 0.5s;
+      }
+    }
+  }
+
+  .navbar-brand {
+    padding: 20px;
+    transition: color 1s;
+  }
+
+  .navbar-toggle {
+    margin-top: 12px;
+  }
+}

@@ -8,6 +8,7 @@ angular.module('portofolio.home', []).
   config(/*@ngInject*/($stateProvider) => {
     $stateProvider.
       state('portofolio.home', {
-
+        'url': '/',
+        'templateUrl': 'home/home.tmpl.html'
       });
   });

@@ -16,6 +16,7 @@ let routes = require('./routes/index');
 let app = express();
 let http = require('http').Server(app);
 
+let mode = process.env.environment || 'dev';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
  * development error handler
  * will print stacktrace
  */
-if (config.mode === 'dev') {
+if (mode === 'dev') {
   app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {

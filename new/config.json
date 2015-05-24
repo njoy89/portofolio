@@ -2,8 +2,6 @@
   "host": "http://localhost",
   "port": 8000,
 
-  "mode": "dev",
-
   "files": {
     "server": {
       "path": "./server/",
@@ -30,6 +28,7 @@
       "images": "./images/",
       "bundle": {
         "appjs": "app.js",
+        "appcss": "app.css",
         "libsjs": "libs.js",
         "libscss": "libs.css",
         "partials": "partials.js"
@@ -43,14 +42,19 @@
         "./node_modules/angular/angular.js",
         "./node_modules/angular-ui-router/release/angular-ui-router.js",
         "./node_modules/angular-bootstrap/dist/ui-bootstrap.js",
-        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js",
+        "./node_modules/jquery/dist/jquery.js",
+        "./node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "css": [
         "./client/styles/*.css",
-        "./node_modules/bootstrap/dist/css/bootstrap.css"
+        "./node_modules/bootstrap/dist/css/bootstrap.css",
+        "./node_modules/animate.css/animate.min.css",
+        "./node_modules/font-awesome/css/font-awesome.css"
       ],
       "fonts": [
-        "./node_modules/bootstrap/dist/fonts/*"
+        "./node_modules/bootstrap/dist/fonts/*",
+        "./node_modules/font-awesome/fonts/*"
       ]
     },
     "prod": {
@@ -58,14 +62,19 @@
         "./node_modules/angular/angular.js",
         "./node_modules/angular-ui-router/release/angular-ui-router.js",
         "./node_modules/angular-bootstrap/dist/ui-bootstrap.js",
-        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"
+        "./node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js",
+        "./node_modules/jquery/dist/jquery.js",
+        "./node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "css": [
         "./client/styles/*.css",
-        "./node_modules/bootstrap/dist/css/bootstrap.css"
+        "./node_modules/bootstrap/dist/css/bootstrap.css",
+        "./node_modules/animate.css/animate.min.css",
+        "./node_modules/font-awesome/css/font-awesome.css"
       ],
       "fonts": [
-        "./node_modules/bootstrap/dist/fonts/*"
+        "./node_modules/bootstrap/dist/fonts/*",
+        "./node_modules/font-awesome/fonts/*"
       ]
     }
   }

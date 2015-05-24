@@ -7,13 +7,14 @@
   <link rel="stylesheet" type="text/css" href="css/libs.css">
   <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
-<body>
-  <div id="wrapper" ng-cloak>
-    <div id="page-wrapper" class="gray-bg">
-      <div class="wrapper wrapper-content">
-        <div class="animated fadeInRight" ui-view></div>
-        stachu
-      </div>
+<body ng-cloak>
+  <header>
+    <navigation-panel></navigation-panel>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div ui-view></div>
     </div>
   </div>
 
