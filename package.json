@@ -23,9 +23,7 @@
     "font-awesome": "^4.3.0",
     "jade": "~1.9.2",
     "jquery": "^2.1.4",
-    "morgan": "~1.5.3"
-  },
-  "devDependencies": {
+    "morgan": "~1.5.3",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.1.0",
     "gulp-concat": "^2.5.2",
@@ -42,5 +40,7 @@
     "gulp-watch": "^4.2.4",
     "jshint-stylish": "^2.0.0",
     "run-sequence": "^1.1.1"
+  },
+  "devDependencies": {
   }
 }
