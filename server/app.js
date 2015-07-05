@@ -73,8 +73,7 @@ app.use((err, req, res) => {
 /*
  * runs the server
  */
-console.log('Running the server on the address: ' + config.host + ':' + config.port + '/');
 
-http.listen(config.port);
-
-module.exports = app;
+var port = process.env.PORT || config.defaultPort;
+http.listen(port);
+console.log('Running the server on the address: http://localhost:' + port + '/');

@@ -1,6 +1,5 @@
 {
-  "host": "http://localhost",
-  "port": 8000,
+  "defaultPort": 8080,
 
   "files": {
     "server": {

@@ -7,7 +7,6 @@
     "node": "0.12.x"
   },
   "scripts": {
-    "prestart": "npm install",
     "start": "gulp start"
   },
   "dependencies": {
