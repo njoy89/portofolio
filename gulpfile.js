@@ -77,7 +77,7 @@ gulp.task('libs:js', function () {
 gulp.task('libs:css', function () {
   return gulp.src(config.libs[mode].css).
     pipe(plugins.concat(config.files.build.bundle.libscss)).
-    pipe(plugins.minifyCss({
+    pipe(devMode ? plugins.util.noop() : plugins.minifyCss({
       keepSpecialComments: 0
     })).
     pipe(gulp.dest(config.files.build.path + config.files.build.css));
@@ -99,7 +99,7 @@ gulp.task('app:css', function () {
   return gulp.src(config.files.client.path + config.files.client.less).
     pipe(plugins.less()).
     pipe(plugins.concat(config.files.build.bundle.appcss)).
-    pipe(plugins.minifyCss()).
+    pipe(devMode ? plugins.util.noop() : plugins.minifyCss()).
     pipe(gulp.dest(config.files.build.path + config.files.build.css));
 });
 
