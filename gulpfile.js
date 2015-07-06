@@ -117,6 +117,7 @@ gulp.task('start', function () {
     gulp.watch([
         config.files.client.path + config.files.client.js,
         config.files.client.path + config.files.client.html,
+        config.files.client.path + config.files.client.css,
         config.files.client.path + 'index.html'
     ], ['build']);
 

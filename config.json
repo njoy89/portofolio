@@ -15,6 +15,7 @@
       "js": "./app/**/*.js",
       "lessMain": "./styles/**/*.less",
       "less": "./**/*.less",
+      "css": "./**/*.css",
       "html": "./app/**/*.html",
       "images": "./images/*"
     },
