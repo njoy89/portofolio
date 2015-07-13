@@ -1,53 +1,27 @@
 <div>
   <div class="container">
     <ul class="timeline">
-      <li>
-        <div class="timeline-badge primary">
-          <i class="fa fa-briefcase"></i>
+      <li ng-repeat="item in experience.experience" ng-class="::{'timeline-inverted': $index % 2}">
+        <div class="timeline-badge" ng-class="::{
+            'primary': item.type === 'work',
+            'success': item.type === 'thesis',
+            'info': item.type === 'internship'
+          }">
+          <i class="fa" ng-class="::{
+            'fa-briefcase': item.type === 'work',
+            'fa-graduation-cap': item.type === 'thesis',
+            'fa-book': item.type === 'internship'
+          }"></i>
         </div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h3 class="timeline-title">Codilime &ndash; front-end developer</h3>
-            <p><small class="text-muted">April 2015 &ndash; now</small></p>
+            <h3 class="timeline-title">{{ ::item.name }}</h3>
+            <h4 ng-if="::item.position">{{ ::item.position }}</h4>
+            <p><small class="text-muted">{{ ::item.period }}</small></p>
           </div>
           <div class="timeline-body">
-            <p>shortened description TODO</p>
-          </div>
-        </div>
-      </li>
-      <li class="timeline-inverted">
-        <div class="timeline-badge primary"><i class="fa fa-briefcase"></i></div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h3 class="timeline-title">Maxymiser</h3>
-            <p><small class="text-muted">September 2014 &ndash; April 2015</small></p>
-          </div>
-          <div class="timeline-body">
-            <p>shortened description TODO</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="timeline-badge success"><i class="fa fa-book"></i></div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h3 class="timeline-title">MSc in Computer Science</h3>
-            <p><small class="text-muted">September 2014</small></p>
-          </div>
-          <div class="timeline-body">
-            <p>shortened description TODO</p>
-          </div>
-        </div>
-      </li>
-      <li class="timeline-inverted">
-        <div class="timeline-badge primary"><i class="fa fa-briefcase"></i></div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h3 class="timeline-title">University of Warsaw </h3>
-            <p><small class="text-muted">November 2012 &ndash; September 2014</small></p>
-          </div>
-          <div class="timeline-body">
-            <p>shortened description TODO</p>
+            <p ng-bind-html="item.description"></p>
+            <p class="pull-right"><button class="btn btn-default" type="button">more</button></p>
           </div>
         </div>
       </li>

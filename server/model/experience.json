@@ -1,0 +1,83 @@
+[
+  {
+    "id": "exper-1",
+    "name": "Codilime",
+    "position": "front-end developer",
+    "period": "April 2015 – now",
+    "description": "Working on the http://deepsense.io/ project — an innovative platform for processing and analyzing really large amount of data using technology and algorithms from the field of Machine Learning and Big Data. I am responsible for developing the front-end part of the Deepsense Studio.",
+    "type": "work",
+    "details": true
+  },
+  {
+    "id": "exper-2",
+    "name": "Maxymiser",
+    "position": "front-end developer",
+    "period": "September 2014 – April 2015",
+    "description": "shortened description TODO",
+    "type": "work",
+    "details": true
+  },
+  {
+    "id": "exper-3",
+    "name": "MSc in Computer Science",
+    "position": null,
+    "period": "September 2014",
+    "description": "shortened description TODO",
+    "type": "thesis",
+    "details": true
+  },
+  {
+    "id": "exper-4",
+    "name": "University of Warsaw",
+    "position": "software developer",
+    "period": "November 2012 – September 2014",
+    "description": "USOS",
+    "type": "work",
+    "details": true
+  },
+  {
+    "id": "exper-5",
+    "name": "Transition technologies",
+    "position": "iOS developer",
+    "period": "Aug 2012 – Nov 2012",
+    "description": "TODO",
+    "type": "work",
+    "details": true
+  },
+  {
+    "id": "exper-6",
+    "name": "BSc in Computer Science",
+    "position": null,
+    "period": "Sep 2012",
+    "description": "bachelor thesis",
+    "type": "thesis",
+    "details": true
+  },
+  {
+    "id": "exper-7",
+    "name": "BSc in Mathematics",
+    "position": null,
+    "period": "Sep 2011",
+    "description": "todo",
+    "type": "thesis",
+    "details": true
+  },
+  {
+    "id": "exper-8",
+    "name": "Codility",
+    "position": "software developer intern",
+    "period": "Jul 2011 – Sep 2011",
+    "description": "todo",
+    "type": "internship",
+    "details": true
+  },
+  {
+    "id": "exper-9",
+    "name": "Atinea",
+    "position": "software developer intern",
+    "period": "Jun 2010 – Sep 2011",
+    "description": "todo",
+    "type": "internship",
+    "details": true
+  }
+]

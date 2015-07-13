@@ -5,6 +5,7 @@
 'use strict';
 
 let config = require('./../config.json');
+let experience = require('./routes/experience.js');
 
 let express = require('express');
 let path = require('path');
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './../' + config.files.build.path)));
 
 //app.use('/', routes);
+app.use('/experience', experience);
 
 /*
  * HTTP 404 and forward to error handler
